@@ -1,13 +1,17 @@
 // number of rows change here:
 
 @number-of-lines: 5;
-@border-width: 2px;
+@border-width: 9px;
 
 @zindex: @number-of-lines*2;
 
 
 .fontWeight (@border-width) when (@border-width > 4) {
 	font-weight: bold;
+}
+
+.textDecoration (@border-width) when (@border-width > 8) {
+	text-decoration: underline;
 }
 
 * {
@@ -31,7 +35,7 @@
 		border-right: @border-width solid #000;
 		background-color: #fff;
 		.fontWeight(@border-width);
-
+		.textDecoration (@border-width);
 
 		&-holder {
 			position: relative;
