@@ -1,0 +1,43 @@
+// number of rows change here:
+
+@number-of-rows: 4;
+@border-width: 2px;
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: Roboto;
+}
+.wrapper {
+
+}
+
+.heading {
+	padding: 20px;
+
+	&-line {
+		display: inline-block;
+		padding: 10px 10px 8px 5px;
+		border-top: @border-width solid #000;
+		border-right: @border-width solid #000;
+		text-decoration: underline;
+		background-color: #fff;
+		font-weight: bold;
+
+		&-holder {
+			position: relative;
+			margin-top: -@border-width;
+		}
+	}
+}
+
+
+.generate-stairs-border(@number-of-rows);
+
+.generate-stairs-border(@n, @i: 1) when (@i =< @n) {
+	.heading-line-holder:nth-child(@{i}) {
+		z-index: (20-@i);
+	}
+	.generate-stairs-border(@n, (@i + 1));
+}
